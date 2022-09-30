@@ -2,14 +2,15 @@
 Database models.
 
 """
-from email.policy import default
-from enum import unique
+
+
 from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
     PermissionsMixin,
 )
+
 
 class UserManager(BaseUserManager):
     """ Manager for users """
@@ -22,6 +23,7 @@ class UserManager(BaseUserManager):
 
         return user
 
+
 class User(AbstractBaseUser, PermissionsMixin):
     """ User in the system. """
     email = models.EmailField(max_length=255, unique=True)
@@ -30,5 +32,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
 
     objects = UserManager()
-
     USERNAME_FIELD = 'email'
