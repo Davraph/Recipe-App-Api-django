@@ -28,10 +28,18 @@ class UserAdmin(BaseUserAdmin):
         (_('Important date'), {'fields': ('last_login',)}),
     )
     readonly_fields = ['last_login']
-    add_fieldset = (
+    add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email','password1','password2','name','is_active', 'is_staff', 'is_superuser'),
+            'fields': (
+                'email',
+                'password1',
+                'password2',
+                'name',
+                'is_active',
+                'is_staff',
+                'is_superuser',
+            ),
         }),
     )
 
